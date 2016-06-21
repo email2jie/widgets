@@ -12,21 +12,23 @@ const Tabs = React.createClass({
   },
 
   render(){
+
     const headerItems = this.props.items.map((el, i)=>{
       return(
         <li key={i} onClick={this.clickHandler.bind(this, i)}>
-          <h1>el.name</h1>
+          <h1>{el.name}</h1>
         </li>
       );
 
     });
 
     return (
-
-      <ul>
-        {headerItems}
-      </ul>
-
+      <div>
+        <ul>
+          {headerItems}
+        </ul>
+        <article>{this.props.items[this.state.currentTab].content}</article>
+      </div>
     );
   }
 
